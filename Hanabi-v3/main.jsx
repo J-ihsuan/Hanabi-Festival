@@ -5,7 +5,7 @@ class Header extends React.Component{
             <header>
                 <div className="logo">
                     <div className="logo-icon">🎇</div>
-                    <span className="logo-text">Hana<span>bi</span></span>
+                    <span className="logo-text">Hana<span>bi-3</span></span>
                 </div>
             </header>
         );

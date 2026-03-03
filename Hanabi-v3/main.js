@@ -97,7 +97,7 @@ class Main extends React.Component {
         day: "29",
         month: "Aug",
         name: "Omagari Hanabi Festival",
-        link: "https://www.omagari-hanabi.com/overview/summer",
+        link: "https://www.omagari-hanabi.com/",
         descript: "Witness breathtaking fireworks explode above accompanied by stories and music, which brings the show of light and sound together in a friendly festival setting at the end of August in the Daisen area.",
         time: "17:10 ~ 21:30",
         location: "大曲の花火公園, Japan"

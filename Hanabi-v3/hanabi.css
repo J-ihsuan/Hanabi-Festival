@@ -84,7 +84,7 @@ header {
 	color: var(--text-primary);
 }
 
-.logo-text span { color: var(--accent-blue); }
+.logo-text span { color: var(--accent-red); }
 
 /* Events Section */
 .events {
