@@ -6,7 +6,7 @@
 * npm Version: v10.9.4
 
 #### [Framework & Build Tools]
-* React & ReactDOM: v18.3.1
+* React & ReactDOM: v18.x (Latest stable via UMD)
 * Babel (@babel/core, @babel/cli, @babel/preset-react): Latest 7.x
 
 #### [Browsers]

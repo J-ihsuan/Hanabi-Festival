@@ -7,7 +7,7 @@ class Header extends React.Component {
       className: "logo-icon"
     }, "\uD83C\uDF87"), /*#__PURE__*/React.createElement("span", {
       className: "logo-text"
-    }, "Hana", /*#__PURE__*/React.createElement("span", null, "bi"))));
+    }, "Hana", /*#__PURE__*/React.createElement("span", null, "bi-3"))));
   }
 }
 
@@ -81,6 +81,17 @@ class Main extends React.Component {
     this.state = {
       eventsData: [{
         id: 1,
+        img: "images/SumidagawaAI.png",
+        imgTitle: "Sumidagawa Hanabi Festival - AI-generated illustration",
+        day: "25",
+        month: "Jul",
+        name: "Sumidagawa Hanabi Festival",
+        link: "https://www.sumidagawa-hanabi.com",
+        descript: "Sumidagawa Fireworks Festival is the oldest recorded fireworks display in Japan, dating back to 1733. It is a quintessential Tokyo summer tradition held to ward off evil spirits and entertain the masses.",
+        time: "19:00 ~ 20:30",
+        location: "隅田川, Tokyo, Japan"
+      }, {
+        id: 2,
         img: "images/NagaokaAI.png",
         imgTitle: "Nagaoka Hanabi Festival - AI-generated illustration",
         day: "02",
@@ -89,9 +100,31 @@ class Main extends React.Component {
         link: "https://nagaokamatsuri.com",
         descript: "First started in 1946 as a war-damage reconstruction event to mourn the deceased of WWII, the Nagaoka Fireworks Festival in Niigata Prefecture carries on the spirit of Japan through the decades.",
         time: "19:20 ~ 21:10",
-        location: "信濃川の河川敷, Japan"
+        location: "信濃川の河川敷, Niigata, Japan"
       }, {
-        id: 2,
+        id: 3,
+        img: "images/SuwakoAI.png",
+        imgTitle: "Suwako Hanabi Festival - AI-generated illustration",
+        day: "15",
+        month: "Aug",
+        name: "Suwako Hanabi Festival",
+        link: "https://suwako-hanabi.com",
+        descript: "Known for launching one of the highest numbers of shells in Japan (over 40,000), this festival uses the natural mountain landscape surrounding Lake Suwa to create a thunderous acoustic experience.",
+        time: "19:00 ~ 21:00",
+        location: "諏訪湖, Nagano, Japan"
+      }, {
+        id: 4,
+        img: "images/AkagawaAI.png",
+        imgTitle: "Akagawa Hanabi Festival - AI-generated illustration",
+        day: "15",
+        month: "Aug",
+        name: "Akagawa Hanabi Festival",
+        link: "https://akagawahanabi.com",
+        descript: "Consistently ranked as one of the most beautiful displays in Japan, Akagawa is famous for its 'wide-star-mine' sequences that span over 700 meters, synchronizing cutting-edge pyrotechnics with music.",
+        time: "18:45 ~ 21:00",
+        location: "赤川河畔, Yamagata, Japan"
+      }, {
+        id: 5,
         img: "images/OmagariAI.png",
         imgTitle: "Omagari Hanabi Festival - AI-generated illustration",
         day: "29",
@@ -100,9 +133,9 @@ class Main extends React.Component {
         link: "https://www.omagari-hanabi.com/",
         descript: "Witness breathtaking fireworks explode above accompanied by stories and music, which brings the show of light and sound together in a friendly festival setting at the end of August in the Daisen area.",
         time: "17:10 ~ 21:30",
-        location: "大曲の花火公園, Japan"
+        location: "大曲の花火公園, Akita, Japan"
       }, {
-        id: 3,
+        id: 6,
         img: "images/TsuchiuraAI.png",
         imgTitle: "Tsuchiura Hanabi Festival - AI-generated illustration",
         day: "01",
@@ -111,7 +144,7 @@ class Main extends React.Component {
         link: "https://www.tsuchiura-hanabi.jp",
         descript: "Tsuchiura All Japan Fireworks Competition is held every year in early November, to celebrate autumn harvest and thank farmers for their important work.",
         time: "17:30 ~ 20:00",
-        location: "土浦市桜川畔, Japan"
+        location: "桜川畔, Ibaraki, Japan"
       }]
     };
   }
