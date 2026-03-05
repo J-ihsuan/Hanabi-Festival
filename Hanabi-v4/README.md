@@ -18,7 +18,7 @@
 **A. Setup & Build**
 1. Open the Terminal and navigate to the project folder.
 
-2. Install the required Babel dependencies:
+2. Install the required dependencies (TypeScript):
 
     ```bash
     npm install
