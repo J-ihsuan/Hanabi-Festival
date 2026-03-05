@@ -56,3 +56,23 @@ jobs:
         # Test if the server responds correctly
         curl -f http://localhost:3000 || exit 1
         echo "Hanabi-v3 server test passed successfully!"
+
+  # 4. Test Hanabi 4 (Build TypeScript and Server Startup Test)
+    - name: Build TypeScript and Test Server
+      working-directory: ./Hanabi-v4
+      run: |
+        npm install
+        
+        # Compile the TSC file to standard JavaScript
+        npx tsc main.ts
+        echo "Hanabi-v4 TSC compilation passed!"
+        
+        # Start the server in the background
+        npm start &
+        
+        # Wait for 3 seconds to ensure the server is fully running
+        sleep 3
+        
+        # Test if the server responds correctly
+        curl -f http://localhost:3000 || exit 1
+        echo "Hanabi-v4 server test passed successfully!"
