@@ -79,6 +79,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      showOnlyAug: false,
       eventsData: [{
         id: 1,
         img: "images/SumidagawaAI.png",
@@ -149,6 +150,7 @@ class Main extends React.Component {
     };
   }
   render() {
+    const displayData = this.state.showOnlyAug ? this.state.eventsData.filter(event => event.month === "Aug") : this.state.eventsData;
     return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
       className: "grid-bg"
     }), /*#__PURE__*/React.createElement(Header, null), /*#__PURE__*/React.createElement("section", {
@@ -160,9 +162,14 @@ class Main extends React.Component {
       className: "section-title"
     }, "Events"), /*#__PURE__*/React.createElement("p", {
       className: "section-subtitle"
-    }, "Mark your calendar for these special festivals")), /*#__PURE__*/React.createElement("div", {
+    }, "Mark your calendar for these special festivals"), /*#__PURE__*/React.createElement("button", {
+      onClick: () => this.setState({
+        showOnlyAug: !this.state.showOnlyAug
+      }),
+      className: "section-monthlyBtn"
+    }, this.state.showOnlyAug ? "All Events" : "August Events")), /*#__PURE__*/React.createElement("div", {
       className: "events-grid"
-    }, this.state.eventsData.map(event => /*#__PURE__*/React.createElement(EventsCard, {
+    }, displayData.map(event => /*#__PURE__*/React.createElement(EventsCard, {
       key: event.id,
       event: event
     })))), /*#__PURE__*/React.createElement(Footer, null));

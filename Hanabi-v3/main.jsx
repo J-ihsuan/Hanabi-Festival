@@ -69,6 +69,7 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            showOnlyAug: false,
             eventsData: [
                 {
                     id: 1, 
@@ -128,6 +129,8 @@ class Main extends React.Component {
     }
 
     render() {
+        const displayData = this.state.showOnlyAug ? this.state.eventsData.filter(event => event.month === "Aug"): this.state.eventsData;
+
         return (
             <React.Fragment>
                 <div className="grid-bg"></div>
@@ -136,9 +139,15 @@ class Main extends React.Component {
                     <div className="section-header">
                         <h2 className="section-title">Events</h2>
                         <p className="section-subtitle">Mark your calendar for these special festivals</p>
+
+                        <button onClick = {() => 
+                            this.setState({ showOnlyAug: !this.state.showOnlyAug })}
+                            className="section-monthlyBtn">
+                            {this.state.showOnlyAug ? "All Events" : "August Events"}
+                        </button>
                     </div>
                     <div className="events-grid">
-                        {this.state.eventsData.map(event => (
+                        {displayData.map(event => (
                             <EventsCard key={event.id} event={event} />
                         ))}
                     </div>
