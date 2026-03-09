@@ -80,7 +80,7 @@ header {
 .logo-text {
 	font-family: 'Syne', sans-serif;
 	font-size: 1.3rem;
-	font-weight: 700;
+	font-weight: 700; // Bold
 	color: var(--text-primary);
 }
 

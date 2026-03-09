@@ -1,7 +1,7 @@
 // Import built-in Node.js modules
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
+const http = require('http');   // For network request
+const fs = require('fs');       // File System
+const path = require('path');  
 
 // Set Port
 const PORT = 3000;
@@ -10,6 +10,7 @@ const PORT = 3000;
 // inResponse (Response): What the server sends back.
 const server = http.createServer((inRequest, inResponse) => {
     // Determine which file to open. If the browser asks for "/", give it "index.html".
+    // === Strict Equality, Type
     let filePath = '.' + (inRequest.url === '/' ? '/index.html' : inRequest.url);
 
     // Read File
@@ -17,7 +18,7 @@ const server = http.createServer((inRequest, inResponse) => {
         // If there is an error, send a 404 message.
         if (error) {
             inResponse.writeHead(404);
-            inResponse.end('File not found!');
+            inResponse.end('404 File not found!');
             return;
         } else {
             // OK

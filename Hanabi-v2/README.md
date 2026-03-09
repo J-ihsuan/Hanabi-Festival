@@ -14,6 +14,9 @@
 ## Run the Application
 **A. Setup & Build**
 1. Open the Terminal and navigate to the project folder.
+    ```bash
+    cd Hanabi-v2
+    ```
 
 2. Install basic environment:
 
