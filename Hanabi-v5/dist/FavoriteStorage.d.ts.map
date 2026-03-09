@@ -1,0 +1,1 @@
+{"version":3,"file":"FavoriteStorage.d.ts","sourceRoot":"","sources":["../FavoriteStorage.ts"],"names":[],"mappings":"AAAA,qBAAa,eAAe;IAExB,OAAO,CAAC,MAAM,CAAC,GAAG,CAAqB;IAKvC,MAAM,CAAC,YAAY,IAAI,GAAG,CAAC,MAAM,CAAC;IASlC,MAAM,CAAC,aAAa,CAAC,SAAS,EAAE,GAAG,CAAC,MAAM,CAAC,GAAG,IAAI;CAOrD"}
