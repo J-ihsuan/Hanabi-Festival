@@ -17,7 +17,7 @@ const server = http.createServer((inRequest, inResponse) => {
         // If there is an error, send a 404 message.
         if (error) {
             inResponse.writeHead(404);
-            inResponse.end('File not found!');
+            inResponse.end('404 File not found!');
             return;
         } else {
             // OK

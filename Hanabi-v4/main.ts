@@ -131,5 +131,21 @@ const eventsRender = (containerId: string, events: HanabiEvent[]): void => {
 
 // Execute
 document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input') as HTMLInputElement;
+
+    if (searchInput) {
+        // Every typing
+        searchInput.addEventListener('input', (e) => {
+            const keyword = (e.target as HTMLInputElement).value.toLowerCase();
+            // filiter
+            const searchedData = eventsData.filter(event => 
+                event.name.toLowerCase().includes(keyword)
+            );
+            
+            // Update UI
+            eventsRender('events-container', searchedData);
+        });
+    }
+
     eventsRender('events-container', eventsData);
 });

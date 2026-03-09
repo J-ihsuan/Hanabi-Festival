@@ -1,6 +1,6 @@
 // Define HanabiEvent Class
-var HanabiEvent = /** @class */ (function () {
-    function HanabiEvent(id, img, imgTitle, day, month, name, link, descript, time, location) {
+class HanabiEvent {
+    constructor(id, img, imgTitle, day, month, name, link, descript, time, location) {
         this.id = id;
         this.img = img;
         this.imgTitle = imgTitle;
@@ -12,10 +12,9 @@ var HanabiEvent = /** @class */ (function () {
         this.time = time;
         this.location = location;
     }
-    return HanabiEvent;
-}());
+}
 // Store data
-var eventsData = [
+const eventsData = [
     new HanabiEvent(1, "images/SumidagawaAI.png", "Sumidagawa Hanabi Festival - AI-generated illustration", "25", "Jul", "Sumidagawa Hanabi Festival", "https://www.sumidagawa-hanabi.com", "Sumidagawa Fireworks Festival is the oldest recorded fireworks display in Japan, dating back to 1733. It is a quintessential Tokyo summer tradition held to ward off evil spirits and entertain the masses.", "19:00 ~ 20:30", "隅田川, Tokyo, Japan"),
     new HanabiEvent(2, "images/NagaokaAI.png", "Nagaoka Hanabi Festival - AI-generated illustration", "02", "Aug", "Nagaoka Hanabi Festival", "https://nagaokamatsuri.com", "First started in 1946 as a war-damage reconstruction event to mourn the deceased of WWII, the Nagaoka Fireworks Festival in Niigata Prefecture carries on the spirit of Japan through the decades.", "19:20 ~ 21:10", "信濃川の河川敷, Niigata, Japan"),
     new HanabiEvent(3, "images/SuwakoAI.png", "Suwako Hanabi Festival - AI-generated illustration", "15", "Aug", "Suwako Hanabi Festival", "https://suwako-hanabi.com", "Known for launching one of the highest numbers of shells in Japan (over 40,000), this festival uses the natural mountain landscape surrounding Lake Suwa to create a thunderous acoustic experience.", "19:00 ~ 21:00", "諏訪湖, Nagano, Japan"),
@@ -24,21 +23,61 @@ var eventsData = [
     new HanabiEvent(6, "images/TsuchiuraAI.png", "Tsuchiura Hanabi Festival - AI-generated illustration", "01", "Nov", "Tsuchiura Hanabi Competition", "https://www.tsuchiura-hanabi.jp", "Tsuchiura All Japan Fireworks Competition is held every year in early November, to celebrate autumn harvest and thank farmers for their important work.", "17:30 ~ 20:00", "桜川畔, Ibaraki, Japan"),
 ];
 // Render Function (Data -> HTML) 
-var eventsRender = function (containerId, events) {
-    var container = document.getElementById(containerId);
+const eventsRender = (containerId, events) => {
+    const container = document.getElementById(containerId);
     if (!container) {
         console.error("No container found");
         return;
     }
-    var htmlContent = "";
+    let htmlContent = "";
     // For Loop
-    events.forEach(function (event) {
-        htmlContent += "\n            <div class=\"event-card\">\n                <div class=\"event-image\">\n                    <img src=\"".concat(event.img, "\" alt=\"").concat(event.name, "\" title=").concat(event.imgTitle, "/>\n                    <div class=\"event-date-badge\">\n                        <div class=\"day\">").concat(event.day, "</div>\n                        <div class=\"month\">").concat(event.month, "</div>\n                    </div>\n                </div>\n                <div class=\"event-content\">\n                    <h3><a href=\"").concat(event.link, "\" target=\"_blank\" title=\"Visit Official Website\">").concat(event.name, "</a></h3>\n                    <p>").concat(event.descript, "</p>\n                    <div class=\"event-meta\">\n                        <span>\n                            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n                                <circle cx=\"12\" cy=\"12\" r=\"10\"></circle>\n                                <polyline points=\"12 6 12 12 16 14\"></polyline>\n                            </svg>\n                            ").concat(event.time, "\n                        </span>\n                        <span>\n                            <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\">\n                                <path d=\"M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z\"></path>\n                                <circle cx=\"12\" cy=\"10\" r=\"3\"></circle>\n                            </svg>\n                        ").concat(event.location, "\n                        </span>\n                    </div>\n                </div>\n            </div>");
+    events.forEach((event) => {
+        htmlContent += `
+            <div class="event-card">
+                <div class="event-image">
+                    <img src="${event.img}" alt="${event.name}" title=${event.imgTitle}/>
+                    <div class="event-date-badge">
+                        <div class="day">${event.day}</div>
+                        <div class="month">${event.month}</div>
+                    </div>
+                </div>
+                <div class="event-content">
+                    <h3><a href="${event.link}" target="_blank" title="Visit Official Website">${event.name}</a></h3>
+                    <p>${event.descript}</p>
+                    <div class="event-meta">
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            ${event.time}
+                        </span>
+                        <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        ${event.location}
+                        </span>
+                    </div>
+                </div>
+            </div>`;
     });
     // Put HTML into container
     container.innerHTML = htmlContent;
 };
 // Execute
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        // Every typing
+        searchInput.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            // filiter
+            const searchedData = eventsData.filter(event => event.name.toLowerCase().includes(keyword));
+            // Update UI
+            eventsRender('events-container', searchedData);
+        });
+    }
     eventsRender('events-container', eventsData);
 });

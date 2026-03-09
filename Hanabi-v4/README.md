@@ -17,6 +17,9 @@
 ## Run the Application
 **A. Setup & Build**
 1. Open the Terminal and navigate to the project folder.
+    ```bash
+    cd Hanabi-v4
+    ```
 
 2. Install the required dependencies (TypeScript):
 
@@ -26,7 +29,7 @@
 3. Compile the TypeScript file `main.ts` into standard JavaScript `main.js`:
 
     ```bash
-    npx tsc main.ts
+    npx tsc main.ts --target ES2015
     ```
 
 **B. Launch Server**
